@@ -1,0 +1,22 @@
+name: Deploy html
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Build and Deploy
+      uses: nguyenvancongdev
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: main
+        BRANCH: main
+        FOLDER: .
